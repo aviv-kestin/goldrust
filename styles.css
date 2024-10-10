@@ -1,0 +1,83 @@
+/* Load custom font from a file */
+@font-face {
+    font-family: 'CustomFont'; /* Replace with your font name */
+    src: url('Minotaur-Regular-Trial.otf') format('truetype'); /* Adjust the path if necessary */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Remove scroll */
+body, html {
+    margin: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'CustomFont', sans-serif; /* Use the custom font */
+}
+
+.background-image {
+    background-image: url('newbg1.png');
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Horizontally centers the row */
+    align-items: center; /* Vertically centers the row */
+}
+
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Adjust as needed for the image spacing */
+}
+
+.spinning-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align both image and text */
+    text-align: center; /* Ensure the text is centered below the image */
+    justify-content: center;
+    align-items: center;
+    width: 22vw;
+}
+
+.spinning-image img {
+    width: 17.5vw; /* Adjust for image size */
+    margin: 0 .9vw; /* Adds spacing between the images */
+    height: auto;
+    animation: spin 20s linear infinite;
+    filter: grayscale(100%) sepia(100%) hue-rotate(1deg) saturate(300%) brightness(85%);
+}
+
+/* Style for the text under each spinning image */
+.wheel-text {
+    font-size: 1.7vw; /* Responsive text size */
+    margin-top: 2.75vh; /* Space between image and text */
+    color: #ffffff; /* Customize text color */
+    text-align: center; /* Center the text */
+    font-family: 'CustomFont', sans-serif; /* Apply the custom font */
+    max-width: 12vw;
+    color: rgb(255, 255, 218);
+    height: 4.5vh; /* Set a consistent height for all text blocks */
+    display: flex;
+    align-items: flex-start; /* Align the top of the text */
+    letter-spacing: -0.03em; /* Reduce tracking slightly */
+
+
+}
+
+/* Keyframes for spinning animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinning-image img:hover {
+    animation-duration: 1s; /* 20s divided by 3 */
+}

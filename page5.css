@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow: hidden; /* No scrolling */
+    font-family: 'Min', sans-serif;
+}
+
+/* Full-bleed background image */
+.background-image img {
+    width: 100vw;
+    height: auto;
+    display: block;
+    z-index: -1; /* Behind other elements */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* Centered brown box */
+.centered-box {
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg); /* Added tilt to the box */
+    width: 47vw;
+    height: 55vh;
+    background-color: rgb(73, 53, 53); /* Brown color */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Title styling */
+.title {
+    color: rgb(255, 255, 218);
+    font-size: 3.4vw;
+    margin: 0;
+    transform: rotate(0deg); /* Tilt the title */
+    margin-top: -5vh;
+    font-family: 'Min';
+    letter-spacing: -0.03em;
+
+}
+
+/* Body text styling */
+.body-text {
+    color: rgb(255, 255, 218);
+    font-size: 1.2vw;
+    text-align: center;
+    width: 80%;
+    transform: rotate(0deg); /* Tilt the body text */
+    margin-top: 7vh;
+
+
+}
+
+.body-text2 {
+    color: rgb(255, 255, 218);
+    font-size: 1.2vw;
+    text-align: center;
+    width: 80%;
+    transform: rotate(0deg); /* Tilt the body text */
+
+
+}
+
+
+
+.white-text {
+    color: rgb(255, 255, 218) !important;
+}
+
+.draggable-image {
+    position: absolute;
+    top: 90px; /* Custom position */
+    right: 245px; /* Custom position */
+    z-index: 2;
+    cursor: move; /* Show move cursor */
+}
+
+.draggable-image img {
+    width: 250px; /* Adjust the size of the image */
+    height: auto;
+}
+
+/* Menu container with pill shape */
+#menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    height: 12vw;
+    z-index: 10;
+    width: 10vw;
+    padding: 1vw;
+    background-color: transparent;
+    border-radius: 50px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: width 0.5s ease;
+}
+
+/* Extend menu and reveal background when hovered */
+#menu:hover {
+    width: 55vw;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.menu-content {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.spinning-image {
+    display: inline-block;
+    text-align: center;
+    width: 10vw;
+    margin-right: 1vw;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#menu:hover .spinning-image {
+    opacity: 1;
+}
+
+.menu-content .spinning-image:first-child {
+    opacity: 1;
+}
+
+.spinning-image img {
+    width: 100%;
+    height: auto;
+    animation: spin 20s linear infinite;
+    filter: grayscale(100%) sepia(100%) hue-rotate(1deg) saturate(300%);
+    transition: transform 0.2s ease;
+}
+
+.spinning-image span {
+    margin-top: 1.5vh;
+    font-size: 1.03vw;
+    color: rgb(73, 53, 53);
+    font-family: 'Min', sans-serif;
+    display: block;
+    opacity: 0;
+}
+
+#menu:hover .spinning-image span {
+    opacity: 1;
+}
+
+.spinning-image a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.spinning-image img:hover {
+    animation-duration: 1s;
+}
+
+/* Keyframes for image spinning */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom font */
+@font-face {
+    font-family: 'Min';
+    src: url('Minotaur-Regular-Trial.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Mon';
+    src: url('Minotaur-Light-Trial.otf') format('truetype');
+}

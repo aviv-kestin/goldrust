@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('bg2.png'); /* Keep the page background image */
+    background-size: cover; 
+    background-position: center;
+    overflow: hidden; 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+/* Canvas style */
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+}
+
+/* Menu container with pill shape */
+#menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    height: 12vw; /* Increased height for more space */
+    z-index: 10;
+    width: 10vw; /* Initial size, showing only the first wheel */
+    padding: 1vw; /* Padding for pill shape */
+    background-color: transparent; /* Hide the menu background initially */
+    border-radius: 50px; /* Pill shape */
+    overflow: hidden; /* Hide the other wheels initially */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: width 0.5s ease; /* Smooth extension and background appearance on hover */
+}
+
+/* Extend menu and reveal background when hovered */
+#menu:hover {
+    width: 55vw; /* Extend horizontally to reveal other wheels */
+    background-color: rgba(255, 255, 255, 0); /* Show semi-transparent background when hovered */
+}
+
+/* Menu content, initially showing only the first wheel */
+.menu-content {
+    display: flex;
+    align-items: center;
+    justify-content: start; /* Align wheels to the left */
+    height: 100%;
+    white-space: nowrap; /* Prevent wheels from wrapping */
+}
+
+/* Spinning images */
+.spinning-image {
+    display: inline-block;
+    text-align: center;
+    width: 10vw; /* Keep the same size as the first wheel */
+    margin-right: 1vw; /* Space between wheels */
+    text-decoration: none; /* Remove the underline from links */
+    opacity: 0; /* Hide the wheels and text by default */
+    transition: opacity 0.5s ease; /* Smooth fade-in for the wheels and text */
+}
+
+/* Show the wheels and text when hovering over the menu */
+#menu:hover .spinning-image {
+    opacity: 1; /* Show the wheels and text when hovered */
+}
+
+/* Always show the first wheel */
+.menu-content .spinning-image:first-child {
+    opacity: 1; /* Keep the first wheel visible at all times */
+}
+
+/* Style for each wheel image */
+.spinning-image img {
+    width: 100%;
+    height: auto;
+    animation: spin 20s linear infinite;
+    filter: grayscale(100%) sepia(100%) hue-rotate(1deg) saturate(300%) brightness(85%);
+    transition: transform 0.2s ease;
+}
+
+/* Text below the wheels */
+.spinning-image span {
+    margin-top: 1.5vh; /* Add more space between the image and the text */
+    font-size: 1.03vw;
+    color: rgb(73, 53, 53); /* Set text color */
+    font-family: 'Min', sans-serif; /* Custom font */
+    display: block; /* Ensure it behaves as block to prevent squishing */
+    opacity: 0; /* Hide text by default */
+    letter-spacing: -0.03em;
+}
+
+/* Show the text when hovering over the menu */
+#menu:hover .spinning-image span {
+    opacity: 1; /* Show the text on hover */
+}
+
+/* Remove default link styling (no blue and underline) */
+.spinning-image a {
+    text-decoration: none;
+    color: inherit; /* Inherit the text color */
+}
+
+/* Faster spinning on hover */
+.spinning-image img:hover {
+    animation-duration: 1s; /* Speed up the spin on hover */
+}
+
+/* Spinning animation keyframes */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@font-face {
+    font-family: 'Min';
+    src: url('Minotaur-Regular-Trial.otf');
+}

@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    font-family: 'Min', sans-serif; /* Default font for the body */
+}
+
+/* Full-bleed background image for scrolling content */
+.scrolling-content img {
+    width: 100vw; /* Full width for the viewport */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    z-index: 0; /* Ensure it's behind other content */
+}
+
+/* Floating images container */
+.floating-images img {
+    position: absolute;
+    width: 18vw; /* You can adjust the width as needed */
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for adjustments */
+}
+
+/* Individual images with custom positioning, tilt, and opacity */
+.image-1 {
+    top: 100px;
+    right: 230px;
+    transform: rotate(-6deg);
+    opacity: 1;
+    width: 40vw !important;
+}
+
+.image-2 {
+    top: 500px;
+    left: 250px;
+    transform: rotate(-1deg);
+    opacity: 1;
+    width: 38vw !important;
+}
+
+.image-3 {
+    top: 1200px;
+    right: 255px;
+    transform: rotate(0deg);
+    opacity: 1;
+    width: 50vw !important;
+    filter: grayscale(100%) brightness(75%);
+}
+
+.image-4 {
+    top: 1710px;
+    left: 70px;
+    transform: rotate(0deg);
+    opacity: 1;
+    width: 34vw !important;
+}
+
+.image-5 {
+    top: 2250px;
+    right: 370px;
+    transform: rotate(-2deg);
+    opacity: 1;
+    width: 47vw !important;
+    filter: grayscale(100%) brightness(75%);
+}
+
+.image-6 {
+    top: 2650px;
+    right: 70px;
+    transform: rotate(0deg);
+    opacity: 1;
+    width: 40vw !important;
+}
+
+/* Captions styles */
+.floating-captions {
+    position: relative;
+    z-index: 2; /* Ensure captions are on top of the background */
+}
+
+/* Individual caption styles */
+.floating-captions .caption-1,
+.floating-captions .caption-2,
+.floating-captions .caption-3,
+.floating-captions .caption-4,
+.floating-captions .caption-5,
+.floating-captions .caption-6 {
+    position: absolute;
+    color: rgb(255, 255, 218);
+    font-size: 1vw;
+    font-family: 'Man';
+    z-index: 3;
+    max-width: 20vw; /* Adjust caption width as needed */
+    text-align: left;
+}
+
+/* Specific caption positions */
+.caption-1 {
+    top: -3030px; /* Adjust placement for each caption */
+    right: 290px;
+}
+
+.caption-2 {
+    top: -2550px;
+    left: 850px;
+}
+
+.caption-3 {
+    top: -1780px;
+    right: 455px;
+}
+
+.caption-4 {
+    top: -1480px;
+    left: 630px;
+}
+
+.caption-5 {
+    top: -870px;
+    right: 770px;
+}
+
+.caption-6 {
+    top: -300px;
+    right: 700px;
+}
+
+/* Menu container with pill shape */
+#menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    height: 12vw;
+    z-index: 10;
+    width: 10vw;
+    padding: 1vw;
+    background-color: transparent;
+    border-radius: 50px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: width 0.5s ease;
+}
+
+/* Extend menu and reveal background when hovered */
+#menu:hover {
+    width: 55vw;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.menu-content {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.spinning-image {
+    display: inline-block;
+    text-align: center;
+    width: 10vw;
+    margin-right: 1vw;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#menu:hover .spinning-image {
+    opacity: 1;
+}
+
+.menu-content .spinning-image:first-child {
+    opacity: 1;
+}
+
+.spinning-image img {
+    width: 100%;
+    height: auto;
+    animation: spin 20s linear infinite;
+    filter: grayscale(100%) sepia(100%) hue-rotate(1deg) saturate(300%) brightness(85%);
+    transition: transform 0.2s ease;
+}
+
+.spinning-image span {
+    margin-top: 1.5vh;
+    font-size: 1.03vw;
+    color: rgb(255, 255, 218);
+    font-family: 'Min', sans-serif;
+    display: block;
+    opacity: 0;
+}
+
+#menu:hover .spinning-image span {
+    opacity: 1;
+}
+
+.spinning-image a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.spinning-image img:hover {
+    animation-duration: 1s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom font face */
+@font-face {
+    font-family: 'Min';
+    src: url('Minotaur-Regular-Trial.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Man';
+    src: url('Minotaur-Light-Trial.otf') format('truetype');
+}
